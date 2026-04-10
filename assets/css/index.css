@@ -1,0 +1,267 @@
+:root {
+  --gold: #f1c40f;
+  --hytale-blue: #0f172a;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #050810;
+  color: #e2e8f0;
+  scroll-behavior: smooth;
+}
+.font-fantasy {
+  font-family: "Cinzel", serif;
+}
+
+.bg-inicio {
+  background-image: url("/img/bg-inicio.png");
+}
+.bg-loja {
+  background-image: url("/img/bg-loja.png");
+}
+.bg-staff {
+  background-image: url("/img/bg-staff.png");
+}
+nav {
+  position: fixed;
+}
+
+/* Garanta que esta classe abaixo exista para o efeito borrado funcionar */
+.section-bg {
+  position: relative;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.section-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(2, 6, 23, 0.85); /* Escurece a imagem */
+  backdrop-filter: blur(8px); /* Borra a imagem */
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 1;
+}
+
+.section-bg > div {
+  position: relative;
+  z-index: 2;
+}
+
+.glow-gold {
+  filter: drop-shadow(0 0 10px rgba(241, 196, 15, 0.3));
+  transition: 0.5s;
+}
+.glow-gold:hover {
+  filter: drop-shadow(0 0 20px rgba(241, 196, 15, 0.6));
+  transform: scale(1.02);
+}
+
+.shop-card {
+  background: rgba(
+    15,
+    23,
+    42,
+    0.7
+  ); /* Ajustado para 0.7 para melhor contraste */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(241, 196, 15, 0.2);
+}
+.shop-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+}
+
+.shop-card img {
+  transition: transform 0.5s ease;
+}
+
+.shop-card:hover img {
+  transform: scale(1.1);
+  filter: brightness(1.1);
+}
+
+:root {
+  --gold: #f1c40f;
+  --gold-dark: #ca8a04;
+  --hytale-blue: #0f172a;
+}
+
+/* Estilo base do fundo do Modal */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 5rem; /* Começa um pouco abaixo do topo para dar espaço para o conteúdo */
+    width: 100%;
+    height: 100%;
+    background-color: rgba(2, 6, 23, 0.95);
+    backdrop-filter: blur(10px);
+    
+    /* Centralização */
+    justify-content: center;
+    align-items: flex-start; /* Alinha no topo para permitir scroll de cima a baixo */
+    padding: 40px 20px; /* Espaço para o modal não encostar nas bordas da tela */
+    overflow-y: auto; /* O scroll agora acontece aqui, no fundo do modal! */
+}
+
+.modal-content {
+    top: 5%;
+    background: linear-gradient(135deg, #0f172a 0%, #020617 100%);
+    padding: 40px;
+    border: 1px solid rgba(241, 196, 15, 0.3);
+    border-radius: 24px;
+    position: relative;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    align-items: center;
+    align-content: center;
+    /* Removemos o max-height fixo daqui, pois o scroll está no pai */
+    margin-bottom: 40px; /* Margem extra no fim para o scroll não acabar seco */
+}
+
+/* Scrollbar estilizada para o conteúdo interno */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #f1c40f;
+    border-radius: 10px;
+}
+.close-modal {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  color: #64748b;
+  font-size: 32px;
+  font-weight: 300;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.close-modal:hover {
+  color: var(--gold);
+  transform: rotate(90deg);
+}
+
+/* Botão de fechar dentro do modal */
+.modal-btn-close {
+  margin-top: 1.5rem;
+  width: 100%;
+  border: 1px solid rgba(241, 196, 15, 0.4);
+  color: var(--gold);
+  padding: 14px;
+  border-radius: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.75rem;
+  transition: 0.3s;
+  background: transparent;
+  cursor: pointer;
+}
+
+.modal-btn-close:hover {
+  background: var(--gold);
+  color: black;
+  box-shadow: 0 0 20px rgba(241, 196, 15, 0.3);
+}
+
+#space-y-4 {
+  display: flex;
+  flex-direction: wrap;
+  align-self: flex-start;
+}
+
+/* Animação de entrada */
+@keyframes modalEntry {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Estilização da lista de benefícios */
+.benefit-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: 0.3s;
+}
+
+.benefit-item:hover {
+  background: rgba(241, 196, 15, 0.05);
+  border-color: rgba(241, 196, 15, 0.2);
+  transform: translateX(5px);
+}
+
+.benefit-icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(202, 138, 4, 0.15);
+  border-radius: 8px;
+  color: var(--gold);
+}
+
+/* Custom scrollbar para caso o conteúdo seja longo em telas pequenas */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--gold);
+  border-radius: 10px;
+}
+
+@keyframes modalEntry {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-modal {
+  animation: modalEntry 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade {
+  animation: fadeIn 0.8s ease forwards;
+}
